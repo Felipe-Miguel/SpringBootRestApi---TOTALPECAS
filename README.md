@@ -16,21 +16,27 @@ Uma API para o app TotalPecas um e-commerce
 
 | campo | tipo | obrigatório | descricao
 |-------|------|:-------------:|----------
-| preco | float | sim | o valor do produto, deve ser maior que zero |
-| titulo | string | sim | título do produto, deve conter entre 30 e 60 caracteres |
 | categoria_id | int | sim | código de uma categoria previamente cadastrada |
+| titulo | string | sim | título do produto, deve conter entre 30 e 60 caracteres |
+| preco | float | sim | o valor do produto, deve ser maior que zero |
+| marca_id | int | sim | código de uma marca previamente cadastrada |
+| modelo_id | int | sim | código de um modelo previamente cadastrada |
+| anos | int | sim | os anos do modelo que o produto serve, não pode ultrapassar o ano atual |
 | estado_id | int | sim | código de um estado previamente cadastrado |
-| 
 
 
 **Exemplo de corpo de requisição**
 
 ```js
 {
-  preco: 100.00,
-  titulo: `Parachoque dianteiro freemont`,
   categoria_id: 1,
+  titulo: `Parachoque dianteiro freemont`,
+  preco: 100.00,
+  marca_id: 1,
+  modelo_id: 1,
+  anos: [2012,2013,2014]
   estado_id: 1,
+  
 }
 ```
 
@@ -50,15 +56,19 @@ Uma API para o app TotalPecas um e-commerce
 **Exemplo de Corpo de resposta** 
 ```js
 {
-  preco: 100.00,
-  titulo: `Parachoque dianteiro freemont`,
   categoria:{
       categoria_id: 1,
       nome: 'Parachoque'
-  }
-  estado:{
-      estado_id: 1,
-      nome: 'Usado'
+  },
+  titulo: `Parachoque dianteiro freemont`,
+  preco: 100.00,
+  marca:{
+      marca_id: 1,
+      nome: 'Suzuki'
+  },
+  modelo:{
+      modelo_id: 1,
+      nome: 'Freemont'
   }
   }
 ```

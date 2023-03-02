@@ -64,13 +64,18 @@ Uma API para o app TotalPecas um e-commerce
   preco: 100.00,
   marca:{
       marca_id: 1,
-      nome: 'Suzuki'
+      nome: 'Fiat'
   },
   modelo:{
       modelo_id: 1,
       nome: 'Freemont'
-  }
-  }
+  },
+  anos:[2014,2015,2016]
+  },
+  estado:{
+      estado_id: 1,
+      nome: 'Usado'
+  },
 ```
 
 **Códigos de resposta**

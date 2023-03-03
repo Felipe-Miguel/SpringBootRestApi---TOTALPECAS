@@ -101,7 +101,7 @@ Uma API para o app TotalPecas um e-commerce
    "marca_id": 456,
    "modelo_id": 789,
    "anos": [2019, 2020, 2021],
-   "estado_id": "RJ"
+   "estado_id": 2
   
 }
 ```
@@ -117,5 +117,29 @@ Uma API para o app TotalPecas um e-commerce
 
 ###Excluir produto
 
+`DELETE` /api/produtos/{id}
+
+**Exemplo de corpo de requisição**
+
+```js
+{
+     "categoria_id": 1,
+  
+}
+```
+
+**Códigos de resposta**
+
+| codigo | descricao |
+|--------|-----------|
+| 200 | dados retornados com sucesso |
+| 202 | este código é usado quando a requisição DELETE foi aceita pelo servidor, mas a exclusão do recurso ainda não foi concluída. Isso pode acontecer quando a exclusão leva algum tempo para ser concluída|
+| 404 | não existe produto com id informado |
+| | |
+
+---
+
+
+  
 
 

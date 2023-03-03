@@ -6,8 +6,8 @@ Uma API para o app TotalPecas um e-commerce
 - Peca
     -[Cadastrar](#cadastrar-despesa)
     -[Detalhar](#detalhar-produto)
-    -Apagar todos os itens
-    -Listar
+    -[Alterar](#Alterar produto)
+    -[Excluir](#Excluir produto)
     
 ---
 
@@ -132,10 +132,13 @@ Uma API para o app TotalPecas um e-commerce
 
 | codigo | descricao |
 |--------|-----------|
-| 200 | dados retornados com sucesso |
+| 200 | este código é usado para indicar que a requisição DELETE foi bem-sucedida e o recurso foi excluído com sucesso. |
 | 202 | este código é usado quando a requisição DELETE foi aceita pelo servidor, mas a exclusão do recurso ainda não foi concluída. Isso pode acontecer quando a exclusão leva algum tempo para ser concluída|
-| 404 | não existe produto com id informado |
-| | |
+| 204 | este código é usado para indicar que a requisição DELETE foi bem-sucedida e o recurso foi excluído com sucesso, mas não há conteúdo a ser retornado na resposta|
+| 400  | ste código é usado quando a requisição DELETE não pode ser processada devido a um erro no formato ou na sintaxe da requisição| 
+| 401  | este código é usado quando a requisição DELETE requer autenticação, mas as credenciais fornecidas não são válidas ou não foram fornecidas|
+| 404  | este código é usado quando o recurso que a requisição DELETE está tentando excluir não pode ser encontrado| 
+| 500  | este código é usado quando ocorre um erro interno do servidor ao processar a requisição DELETE|
 
 ---
 

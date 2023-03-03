@@ -3,11 +3,11 @@
 Uma API para o app TotalPecas um e-commerce
 
 ## Endpoints
-- Produto
+- Peca
     -[Cadastrar](#cadastrar-despesa)
     -[Detalhar](#detalhar-produto)
-    -[Alterar](#alterar-produto)
-    -[Excluir](#excluir-produto)
+    -[Alterar](#Alterar produto)
+    -[Excluir](#Excluir produto)
     
 ---
 
@@ -44,12 +44,17 @@ Uma API para o app TotalPecas um e-commerce
 
 | codigo | descricao |
 |--------|-----------|
-| 201 | produto cadastrado com sucesso |
-| 400 | os campos enviados são inválidos |
+| 201 | A requisição POST foi bem-sucedida e um novo recurso foi criado|
+| 400 | A requisição POST não pode ser processada devido a um erro no formato ou na sintaxe da requisição|
+| 401 | A requisição POST requer autenticação, mas as credenciais fornecidas não são válidas ou não foram fornecidas|
+| 403 | A requisição POST é proibida pelo servidor, geralmente porque o usuário não tem permissão para criar um novo recurso|
+| 404 | O recurso que a requisição POST está tentando criar não pode ser encontrado|
+| 409 | A requisição POST conflita com o estado atual do recurso, geralmente porque o recurso já existe|
+| 500 | Ocorreu um erro interno do servidor ao processar a requisição POST|
 
 ---
 
-### Detalhar produto
+###Detalhar produto
 
 `GET` /api/produto/{id}
 
@@ -87,7 +92,7 @@ Uma API para o app TotalPecas um e-commerce
 
 ---
 
-### Alterar produto
+###Alterar produto
 
 `PUT` /api/produtos/{id}
 
@@ -110,12 +115,17 @@ Uma API para o app TotalPecas um e-commerce
 
 | codigo | descricao |
 |--------|-----------|
-| 200 | dados retornados com sucesso |
-| 404 | não existe produto com id informado |
-
+| 200 | requisição PUT foi bem-sucedida e o recurso foi atualizado com sucesso|
+| 201 | A requisição PUT foi bem-sucedida e um novo recurso foi criado|
+| 204 | A requisição PUT foi bem-sucedida e o recurso foi atualizado com sucesso, mas não há conteúdo a ser retornado na resposta|
+| 400 | A requisição PUT não pode ser processada devido a um erro no formato ou na sintaxe da requisição|
+| 401 | A requisição PUT requer autenticação, mas as credenciais fornecidas não são válidas ou não foram fornecidas|
+| 403 | A requisição PUT é proibida pelo servidor, geralmente porque o usuário não tem permissão para atualizar o recurso|
+| 404 | O recurso que a requisição PUT está tentando atualizar não pode ser encontrado|
+| 500 | Ocorreu um erro interno do servidor ao processar a requisição PUT|
 ---
 
-### Excluir produto
+###Excluir produto
 
 `DELETE` /api/produtos/{id}
 

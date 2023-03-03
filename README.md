@@ -3,11 +3,11 @@
 Uma API para o app TotalPecas um e-commerce
 
 ## Endpoints
-- Peca
+- Produto
     -[Cadastrar](#cadastrar-despesa)
     -[Detalhar](#detalhar-produto)
-    -[Alterar](#Alterar produto)
-    -[Excluir](#Excluir produto)
+    -[Alterar](#alterar-produto)
+    -[Excluir](#excluir-produto)
     
 ---
 
@@ -49,7 +49,7 @@ Uma API para o app TotalPecas um e-commerce
 
 ---
 
-###Detalhar produto
+### Detalhar produto
 
 `GET` /api/produto/{id}
 
@@ -87,7 +87,7 @@ Uma API para o app TotalPecas um e-commerce
 
 ---
 
-###Alterar produto
+### Alterar produto
 
 `PUT` /api/produtos/{id}
 
@@ -115,7 +115,7 @@ Uma API para o app TotalPecas um e-commerce
 
 ---
 
-###Excluir produto
+### Excluir produto
 
 `DELETE` /api/produtos/{id}
 

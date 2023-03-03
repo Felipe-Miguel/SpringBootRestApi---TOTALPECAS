@@ -11,7 +11,7 @@ Uma API para o app TotalPecas um e-commerce
     
 ---
 
-### Cadastrar despesa
+### Cadastrar produto
 `POST` /api/produto
 
 | campo | tipo | obrigatório | descricao
@@ -84,3 +84,38 @@ Uma API para o app TotalPecas um e-commerce
 |--------|-----------|
 | 200 | dados retornados com sucesso |
 | 404 | não existe produto com id informado |
+
+---
+
+###Alterar produto
+
+`PUT` /api/produtos/{id}
+
+**Exemplo de corpo de requisição**
+
+```js
+{
+     "categoria_id": 1,
+   "titulo": "Novo nome do produto",
+   "preco": 149.99,
+   "marca_id": 456,
+   "modelo_id": 789,
+   "anos": [2019, 2020, 2021],
+   "estado_id": "RJ"
+  
+}
+```
+
+**Códigos de resposta**
+
+| codigo | descricao |
+|--------|-----------|
+| 200 | dados retornados com sucesso |
+| 404 | não existe produto com id informado |
+
+---
+
+###Excluir produto
+
+
+

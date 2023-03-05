@@ -4,11 +4,15 @@ Uma API para o app TotalPecas um e-commerce
 
 ## Endpoints
 - Peca
-    -[Cadastrar](#cadastrar-despesa)
+    -[Cadastrar](#cadastrar-produto)
     -[Detalhar](#detalhar-produto)
-    -[Alterar](#Alterar produto)
-    -[Excluir](#Excluir produto)
-    
+    -[Alterar](#Alterar-produto)
+    -[Excluir](#Excluir-produto)
+- Usuario
+    -[Cadastrar](#cadastrar-usuario)
+    -[Detalhar](#detalhar-usuario)
+    -[Alterar](#alterar-usuario)
+    -[Excluir](#excluir-usuario)
 ---
 
 ### Cadastrar produto
@@ -16,6 +20,7 @@ Uma API para o app TotalPecas um e-commerce
 
 | campo | tipo | obrigatório | descricao
 |-------|------|:-------------:|----------
+| id_produto | int | sim | id de um produto gerado pelo sistema |
 | categoria_id | int | sim | código de uma categoria previamente cadastrada |
 | titulo | string | sim | título do produto, deve conter entre 30 e 60 caracteres |
 | preco | float | sim | o valor do produto, deve ser maior que zero |
@@ -29,6 +34,7 @@ Uma API para o app TotalPecas um e-commerce
 
 ```js
 {
+  id_produto: 1,
   categoria_id: 1,
   titulo: `Parachoque dianteiro freemont`,
   preco: 100.00,
@@ -105,13 +111,14 @@ Uma API para o app TotalPecas um e-commerce
 
 ```js
 {
-     "categoria_id": 1,
-   "titulo": "Novo nome do produto",
-   "preco": 149.99,
-   "marca_id": 456,
-   "modelo_id": 789,
-   "anos": [2019, 2020, 2021],
-   "estado_id": 2
+   id_produto:1,
+   categoria_id: 1,
+   titulo: "Novo nome do produto",
+   preco: 149.99,
+   marca_id: 456,
+   modelo_id: 789,
+   anos: [2019, 2020, 2021],
+   estado_id: 2
   
 }
 ```
@@ -139,7 +146,7 @@ Uma API para o app TotalPecas um e-commerce
 
 ```js
 {
-     "categoria_id": 1,
+     id_produto:1
   
 }
 ```
@@ -160,23 +167,25 @@ Uma API para o app TotalPecas um e-commerce
 
 
 ### Cadastrar usuario
-`POST` /api/produto
+`POST` /api/usuario
 
 | campo | tipo | obrigatório | descricao
 |-------|------|:-------------:|----------
-| nome | string | sim | código de uma categoria previamente cadastrada |
-| email | string | sim | título do produto, deve conter entre 30 e 60 caracteres |
-| celular | string | sim | o valor do produto, deve ser maior que zero |
-| cpf/cnpj | string | sim | código de uma marca previamente cadastrada |
-| cep | string | código de um modelo previamente cadastrada |
-| logradouro | string | sim | os anos do modelo que o produto serve, não pode ultrapassar o ano atual |
-| numero | int | sim | código de um estado previamente cadastrado |
+| id_usuario | int | sim | id de um usuario gerado pelo sistema |
+| nome | string | sim | nome do usuário, deve conter pelo menos dois nomes |
+| email | string | sim | email do usuário |
+| celular | string | sim | celular do usuário |
+| cpf/cnpj | string | sim | cpf ou cnpj do usuário |
+| cep | string | cep do endereço do usuário |
+| logradouro | string | sim | nome do logradouro do usuário |
+| numero | int | sim | número do logradouoro do usuário |
 
 
 **Exemplo de corpo de requisição**
 
 ```js
 {
+  id_usuario: 1,
   nome: "Nome do usuario",
   email: "exemplo@gmail.com",
   celular: "(11)99999-9999",
@@ -203,3 +212,234 @@ Uma API para o app TotalPecas um e-commerce
 ---
 
 
+### Detalhar usuario
+`GET` /api/usuario/{id}
+
+**Exemplo de Corpo de resposta** 
+
+```js
+{
+
+  id_usuario: 1,
+  nome: "Nome do usuario",
+  email: "exemplo@gmail.com",
+  celular: "(11)99999-9999",
+  cpf: "123.456.789-10",
+  cep: "12345-678",
+  logradouro: "Avenida Paulista",
+  numero: 123
+  
+}
+```
+
+**Códigos de resposta**
+
+| codigo | descricao |
+|--------|-----------|
+| 200 | A requisição GET foi bem-sucedida e o servidor retornou os dados solicitados no corpo da resposta| 
+| 204 | A requisição GET foi bem-sucedida, mas não há conteúdo a ser retornado na resposta| 
+| 400 | A requisição GET não pode ser processada devido a um erro no formato ou na sintaxe da requisição|
+| 401 | A requisição GET requer autenticação, mas as credenciais fornecidas não são válidas ou não foram fornecidas|
+| 403 | A requisição GET é proibida pelo servidor, geralmente porque o usuário não tem permissão para acessar o recurso solicitado|
+| 404 | O recurso solicitado na requisição GET não pode ser encontrado|
+| 500 | Ocorreu um erro interno do servidor ao processar a requisição GET|
+
+---
+
+###Alterar usuario
+
+`PUT` /api/usuario/{id}
+
+**Exemplo de corpo de requisição**
+
+```js
+{
+
+  id_usuario: 1,
+  nome: "Nome do usuario alterado",
+  email: "exemplo@gmail.com",
+  celular: "(11)99999-9999",
+  cpf: "123.456.789-10",
+  cep: "12345-678",
+  logradouro: "Avenida Paulista",
+  numero: 123
+}
+```
+
+**Códigos de resposta**
+
+| codigo | descricao |
+|--------|-----------|
+| 200 | A requisição PUT foi bem-sucedida e o recurso foi atualizado com sucesso|
+| 201 | A requisição PUT foi bem-sucedida e um novo recurso foi criado|
+| 204 | A requisição PUT foi bem-sucedida e o recurso foi atualizado com sucesso, mas não há conteúdo a ser retornado na resposta|
+| 400 | A requisição PUT não pode ser processada devido a um erro no formato ou na sintaxe da requisição|
+| 401 | A requisição PUT requer autenticação, mas as credenciais fornecidas não são válidas ou não foram fornecidas|
+| 403 | A requisição PUT é proibida pelo servidor, geralmente porque o usuário não tem permissão para atualizar o recurso|
+| 404 | O recurso que a requisição PUT está tentando atualizar não pode ser encontrado|
+| 500 | Ocorreu um erro interno do servidor ao processar a requisição PUT|
+
+###Excluir produto
+
+`DELETE` /api/produtos/{id}
+
+**Exemplo de corpo de requisição**
+
+```js
+{
+  id_usuario: 1 
+}
+```
+
+**Códigos de resposta**
+
+| codigo | descricao |
+|--------|-----------|
+| 200 | este código é usado para indicar que a requisição DELETE foi bem-sucedida e o recurso foi excluído com sucesso. |
+| 202 | este código é usado quando a requisição DELETE foi aceita pelo servidor, mas a exclusão do recurso ainda não foi concluída. Isso pode acontecer quando a exclusão leva algum tempo para ser concluída|
+| 204 | este código é usado para indicar que a requisição DELETE foi bem-sucedida e o recurso foi excluído com sucesso, mas não há conteúdo a ser retornado na resposta|
+| 400  | ste código é usado quando a requisição DELETE não pode ser processada devido a um erro no formato ou na sintaxe da requisição| 
+| 401  | este código é usado quando a requisição DELETE requer autenticação, mas as credenciais fornecidas não são válidas ou não foram fornecidas|
+| 404  | este código é usado quando o recurso que a requisição DELETE está tentando excluir não pode ser encontrado| 
+| 500  | este código é usado quando ocorre um erro interno do servidor ao processar a requisição DELETE|
+
+---
+
+### Cadastrar usuario
+`POST` /api/usuario
+
+| campo | tipo | obrigatório | descricao
+|-------|------|:-------------:|----------
+| id_usuario | int | sim | id de um usuario gerado pelo sistema |
+| nome | string | sim | nome do usuário, deve conter pelo menos dois nomes |
+| email | string | sim | email do usuário |
+| celular | string | sim | celular do usuário |
+| cpf/cnpj | string | sim | cpf ou cnpj do usuário |
+| cep | string | cep do endereço do usuário |
+| logradouro | string | sim | nome do logradouro do usuário |
+| numero | int | sim | número do logradouoro do usuário |
+
+
+**Exemplo de corpo de requisição**
+
+```js
+{
+  id_usuario: 1,
+  nome: "Nome do usuario",
+  email: "exemplo@gmail.com",
+  celular: "(11)99999-9999",
+  cpf: "123.456.789-10",
+  cep: "12345-678",
+  logradouro: "Avenida Paulista",
+  numero: 123
+  
+}
+```
+
+**Códigos de resposta**
+
+| codigo | descricao |
+|--------|-----------|
+| 200 | A requisição GET foi bem-sucedida e o servidor retornou os dados solicitados no corpo da resposta|
+| 204 | A requisição GET foi bem-sucedida, mas não há conteúdo a ser retornado na resposta|
+| 400 | A requisição GET não pode ser processada devido a um erro no formato ou na sintaxe da requisição|
+| 401 | A requisição GET requer autenticação, mas as credenciais fornecidas não são válidas ou não foram fornecidas|
+| 403 | A requisição GET é proibida pelo servidor, geralmente porque o usuário não tem permissão para acessar o recurso solicitado|
+| 404 | O recurso solicitado na requisição GET não pode ser encontrado|
+| 500 | Ocorreu um erro interno do servidor ao processar a requisição GET|
+
+---
+
+
+### Detalhar usuario
+`GET` /api/usuario/{id}
+
+**Exemplo de Corpo de resposta** 
+
+```js
+{
+
+  id_usuario: 1,
+  nome: "Nome do usuario",
+  email: "exemplo@gmail.com",
+  celular: "(11)99999-9999",
+  cpf: "123.456.789-10",
+  cep: "12345-678",
+  logradouro: "Avenida Paulista",
+  numero: 123
+  
+}
+```
+
+**Códigos de resposta**
+
+| codigo | descricao |
+|--------|-----------|
+| 200 | A requisição GET foi bem-sucedida e o servidor retornou os dados solicitados no corpo da resposta| 
+| 204 | A requisição GET foi bem-sucedida, mas não há conteúdo a ser retornado na resposta| 
+| 400 | A requisição GET não pode ser processada devido a um erro no formato ou na sintaxe da requisição|
+| 401 | A requisição GET requer autenticação, mas as credenciais fornecidas não são válidas ou não foram fornecidas|
+| 403 | A requisição GET é proibida pelo servidor, geralmente porque o usuário não tem permissão para acessar o recurso solicitado|
+| 404 | O recurso solicitado na requisição GET não pode ser encontrado|
+| 500 | Ocorreu um erro interno do servidor ao processar a requisição GET|
+
+---
+
+###Alterar usuario
+
+`PUT` /api/usuario/{id}
+
+**Exemplo de corpo de requisição**
+
+```js
+{
+
+  id_usuario: 1,
+  nome: "Nome do usuario alterado",
+  email: "exemplo@gmail.com",
+  celular: "(11)99999-9999",
+  cpf: "123.456.789-10",
+  cep: "12345-678",
+  logradouro: "Avenida Paulista",
+  numero: 123
+}
+```
+
+**Códigos de resposta**
+
+| codigo | descricao |
+|--------|-----------|
+| 200 | A requisição PUT foi bem-sucedida e o recurso foi atualizado com sucesso|
+| 201 | A requisição PUT foi bem-sucedida e um novo recurso foi criado|
+| 204 | A requisição PUT foi bem-sucedida e o recurso foi atualizado com sucesso, mas não há conteúdo a ser retornado na resposta|
+| 400 | A requisição PUT não pode ser processada devido a um erro no formato ou na sintaxe da requisição|
+| 401 | A requisição PUT requer autenticação, mas as credenciais fornecidas não são válidas ou não foram fornecidas|
+| 403 | A requisição PUT é proibida pelo servidor, geralmente porque o usuário não tem permissão para atualizar o recurso|
+| 404 | O recurso que a requisição PUT está tentando atualizar não pode ser encontrado|
+| 500 | Ocorreu um erro interno do servidor ao processar a requisição PUT|
+
+###Excluir produto
+
+`DELETE` /api/produtos/{id}
+
+**Exemplo de corpo de requisição**
+
+```js
+{
+  id_usuario: 1 
+}
+```
+
+**Códigos de resposta**
+
+| codigo | descricao |
+|--------|-----------|
+| 200 | este código é usado para indicar que a requisição DELETE foi bem-sucedida e o recurso foi excluído com sucesso. |
+| 202 | este código é usado quando a requisição DELETE foi aceita pelo servidor, mas a exclusão do recurso ainda não foi concluída. Isso pode acontecer quando a exclusão leva algum tempo para ser concluída|
+| 204 | este código é usado para indicar que a requisição DELETE foi bem-sucedida e o recurso foi excluído com sucesso, mas não há conteúdo a ser retornado na resposta|
+| 400  | ste código é usado quando a requisição DELETE não pode ser processada devido a um erro no formato ou na sintaxe da requisição| 
+| 401  | este código é usado quando a requisição DELETE requer autenticação, mas as credenciais fornecidas não são válidas ou não foram fornecidas|
+| 404  | este código é usado quando o recurso que a requisição DELETE está tentando excluir não pode ser encontrado| 
+| 500  | este código é usado quando ocorre um erro interno do servidor ao processar a requisição DELETE|
+
+---

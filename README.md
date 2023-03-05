@@ -66,7 +66,7 @@ Uma API para o app TotalPecas um e-commerce
 
 ---
 
-###Detalhar produto
+### Detalhar produto
 
 `GET` /api/produto/{id}
 
@@ -109,7 +109,7 @@ Uma API para o app TotalPecas um e-commerce
 
 ---
 
-###Alterar produto
+### Alterar produto
 
 `PUT` /api/produtos/{id}
 
@@ -144,7 +144,7 @@ Uma API para o app TotalPecas um e-commerce
 
 ---
 
-###Excluir produto
+### Excluir produto
 
 `DELETE` /api/produtos/{id}
 
@@ -182,7 +182,7 @@ Uma API para o app TotalPecas um e-commerce
 | email | string | sim | email do usuário |
 | celular | string | sim | celular do usuário |
 | cpf/cnpj | string | sim | cpf ou cnpj do usuário |
-| cep | string | cep do endereço do usuário |
+| cep | string | sim |cep do endereço do usuário |
 | logradouro | string | sim | nome do logradouro do usuário |
 | numero | int | sim | número do logradouoro do usuário |
 
@@ -252,7 +252,7 @@ Uma API para o app TotalPecas um e-commerce
 
 ---
 
-###Alterar usuario
+### Alterar usuario
 
 `PUT` /api/usuario/{id}
 

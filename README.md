@@ -14,10 +14,11 @@ Uma API para o app TotalPecas um e-commerce
     -[Alterar](#alterar-usuario)
     -[Excluir](#excluir-usuario)
 - Carteira
-    -[Depositar](#cadastrar-usuario)
-    -[Detalhar](#detalhar-usuario)
-    -[Sacar](#alterar-usuario)
-    -[Tranferir](#excluir-usuario)
+    -[Depositar](#depositar)
+    -[Detalhar](#detalhar-transação)
+    -[Detalhar-Todos](#detalhar-transações)
+    -[Sacar](#sacar)
+    -[Tranferir](#transferir)
 ---
 
 ### Cadastrar produto

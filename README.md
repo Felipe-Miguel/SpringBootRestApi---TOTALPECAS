@@ -400,6 +400,7 @@ Uma API para o app TotalPecas um e-commerce
   }
   id_carteira: 1,
   valor: 230.00,
+  conta_tranferencia: 99999-3
 ]
 ```
 
@@ -414,14 +415,10 @@ Uma API para o app TotalPecas um e-commerce
 ```js
 {
 
-  id_usuario: 1,
-  nome: "Nome do usuario alterado",
-  email: "exemplo@gmail.com",
-  celular: "(11)99999-9999",
-  cpf: "123.456.789-10",
-  cep: "12345-678",
-  logradouro: "Avenida Paulista",
-  numero: 123
+tipo:3
+id_carteira: 1,
+valor: 300.00,
+conta_tranferencia: 99999-3
 }
 ```
 
@@ -438,7 +435,7 @@ Uma API para o app TotalPecas um e-commerce
 | 404 | O recurso que a requisição PUT está tentando atualizar não pode ser encontrado|
 | 500 | Ocorreu um erro interno do servidor ao processar a requisição PUT|
 
-###Excluir produto
+### Transferir
 
 `DELETE` /api/produtos/{id}
 

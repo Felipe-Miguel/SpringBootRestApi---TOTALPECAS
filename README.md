@@ -13,6 +13,11 @@ Uma API para o app TotalPecas um e-commerce
     -[Detalhar](#detalhar-usuario)
     -[Alterar](#alterar-usuario)
     -[Excluir](#excluir-usuario)
+- Carteira
+    -[Depositar](#cadastrar-usuario)
+    -[Detalhar](#detalhar-usuario)
+    -[Sacar](#alterar-usuario)
+    -[Tranferir](#excluir-usuario)
 ---
 
 ### Cadastrar produto
@@ -305,34 +310,26 @@ Uma API para o app TotalPecas um e-commerce
 
 ---
 
-### Cadastrar usuario
-`POST` /api/usuario
+### Depositar
+`POST` /api/carteira
 
 | campo | tipo | obrigatório | descricao
 |-------|------|:-------------:|----------
-| id_usuario | int | sim | id de um usuario gerado pelo sistema |
-| nome | string | sim | nome do usuário, deve conter pelo menos dois nomes |
-| email | string | sim | email do usuário |
-| celular | string | sim | celular do usuário |
-| cpf/cnpj | string | sim | cpf ou cnpj do usuário |
-| cep | string | cep do endereço do usuário |
-| logradouro | string | sim | nome do logradouro do usuário |
-| numero | int | sim | número do logradouoro do usuário |
+| id_carteira | int | sim | id de uma carteira gerado pelo sistema |
+| tipo_id | id | sim | qual tipo de transação foi feita, informação previamente cadastrada no sistema|
+| conta_tranferencia | id | sim | qual conta irá receber o saque ou a transferencia|
+| valor | float | sim | valor que será depositado |
+| saldo | float | sim | saldo da carteira |
 
 
 **Exemplo de corpo de requisição**
 
 ```js
 {
-  id_usuario: 1,
-  nome: "Nome do usuario",
-  email: "exemplo@gmail.com",
-  celular: "(11)99999-9999",
-  cpf: "123.456.789-10",
-  cep: "12345-678",
-  logradouro: "Avenida Paulista",
-  numero: 123
-  
+  tipo_id:1
+  id_carteira: 1,
+  valor: 230.00,
+  saldo: 100
 }
 ```
 
@@ -351,23 +348,20 @@ Uma API para o app TotalPecas um e-commerce
 ---
 
 
-### Detalhar usuario
-`GET` /api/usuario/{id}
+### Detalhar transação
+`GET` /api/carteira/{id}
 
 **Exemplo de Corpo de resposta** 
 
 ```js
 {
-
-  id_usuario: 1,
-  nome: "Nome do usuario",
-  email: "exemplo@gmail.com",
-  celular: "(11)99999-9999",
-  cpf: "123.456.789-10",
-  cep: "12345-678",
-  logradouro: "Avenida Paulista",
-  numero: 123
-  
+    
+  tipo:{
+    tipo_id:1,
+    tipo: "Depósito"
+  }
+  id_carteira: 1,
+  valor: 230.00,
 }
 ```
 
@@ -385,9 +379,35 @@ Uma API para o app TotalPecas um e-commerce
 
 ---
 
-###Alterar usuario
+### Detalhar transações
+`GET` /api/carteira
 
-`PUT` /api/usuario/{id}
+**Exemplo de Corpo de resposta** 
+
+```js
+   [ 
+    {
+  tipo:{
+  tipo_id:1,
+  tipo: "Depósito"
+  }
+  id_carteira: 1,
+  valor: 230.00,
+},
+  tipo:{
+  tipo_id:2,
+  tipo: "Saque"
+  }
+  id_carteira: 1,
+  valor: 230.00,
+]
+```
+
+
+
+### Sacar
+
+`PUT` /api/carteira
 
 **Exemplo de corpo de requisição**
 

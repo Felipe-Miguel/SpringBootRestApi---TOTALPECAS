@@ -284,9 +284,9 @@ Uma API para o app TotalPecas um e-commerce
 | 404 | O recurso que a requisição PUT está tentando atualizar não pode ser encontrado|
 | 500 | Ocorreu um erro interno do servidor ao processar a requisição PUT|
 
-###Excluir produto
+### Excluir usuario
 
-`DELETE` /api/produtos/{id}
+`DELETE` /api/usuario/{id}
 
 **Exemplo de corpo de requisição**
 
@@ -311,7 +311,7 @@ Uma API para o app TotalPecas um e-commerce
 ---
 
 ### Depositar
-`POST` /api/carteira
+`PUT` /api/carteira
 
 | campo | tipo | obrigatório | descricao
 |-------|------|:-------------:|----------
@@ -415,7 +415,7 @@ Uma API para o app TotalPecas um e-commerce
 ```js
 {
 
-tipo:3
+tipo_id:2
 id_carteira: 1,
 valor: 300.00,
 conta_tranferencia: 99999-3
@@ -437,13 +437,16 @@ conta_tranferencia: 99999-3
 
 ### Transferir
 
-`DELETE` /api/produtos/{id}
+`PUT` /api/carteira
 
 **Exemplo de corpo de requisição**
 
 ```js
 {
-  id_usuario: 1 
+tipo:3
+id_carteira: 1,
+valor: 300.00,
+conta_tranferencia: 99999-3
 }
 ```
 

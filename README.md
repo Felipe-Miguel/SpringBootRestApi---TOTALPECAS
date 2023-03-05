@@ -312,7 +312,7 @@ Uma API para o app TotalPecas um e-commerce
 ---
 
 ### Depositar
-`PUT` /api/carteira
+`POST` /api/carteira
 
 | campo | tipo | obrigatório | descricao
 |-------|------|:-------------:|----------
@@ -409,7 +409,7 @@ Uma API para o app TotalPecas um e-commerce
 
 ### Sacar
 
-`PUT` /api/carteira
+`POST` /api/carteira
 
 **Exemplo de corpo de requisição**
 
@@ -438,7 +438,7 @@ conta_tranferencia: 99999-3
 
 ### Transferir
 
-`PUT` /api/carteira
+`POST` /api/carteira
 
 **Exemplo de corpo de requisição**
 

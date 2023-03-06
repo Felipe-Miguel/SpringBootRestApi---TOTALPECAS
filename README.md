@@ -111,7 +111,7 @@ Uma API para o app TotalPecas um e-commerce
 
 ### Alterar produto
 
-`PUT` /api/produtos/{id}
+`PUT` /api/produto/{id}
 
 **Exemplo de corpo de requisição**
 
@@ -146,7 +146,7 @@ Uma API para o app TotalPecas um e-commerce
 
 ### Excluir produto
 
-`DELETE` /api/produtos/{id}
+`DELETE` /api/produto/{id}
 
 **Exemplo de corpo de requisição**
 

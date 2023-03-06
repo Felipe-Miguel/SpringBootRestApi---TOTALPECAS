@@ -4,21 +4,21 @@ Uma API para o app TotalPecas um e-commerce
 
 ## Endpoints
 - Peca
-    -[Cadastrar](#cadastrar-produto)
-    -[Detalhar](#detalhar-produto)
-    -[Alterar](#Alterar-produto)
-    -[Excluir](#Excluir-produto)
+    - [Cadastrar](#cadastrar-produto)
+    - [Detalhar](#detalhar-produto)
+    - [Alterar](#Alterar-produto)
+    - [Excluir](#Excluir-produto)
 - Usuario
-    -[Cadastrar](#cadastrar-usuario)
-    -[Detalhar](#detalhar-usuario)
-    -[Alterar](#alterar-usuario)
-    -[Excluir](#excluir-usuario)
+    - [Cadastrar](#cadastrar-usuario)
+    - [Detalhar](#detalhar-usuario)
+    - [Alterar](#alterar-usuario)
+    - [Excluir](#excluir-usuario)
 - Carteira
-    -[Depositar](#depositar)
-    -[Detalhar](#detalhar-transação)
-    -[Detalhar-Todos](#detalhar-transações)
-    -[Sacar](#sacar)
-    -[Tranferir](#transferir)
+    - [Depositar](#depositar)
+    - [Detalhar](#detalhar-transação)
+    - [Detalhar-Todos](#detalhar-transações)
+    - [Sacar](#sacar)
+    - [Tranferir](#transferir)
 ---
 
 ### Cadastrar produto
@@ -317,7 +317,7 @@ Uma API para o app TotalPecas um e-commerce
 | campo | tipo | obrigatório | descricao
 |-------|------|:-------------:|----------
 | id_carteira | int | sim | id de uma carteira gerado pelo sistema |
-| tipo_id | id | sim | qual tipo de transação foi feita, informação previamente cadastrada no sistema|
+| tipo_id | id | sim | qual tipo de transação foi feita, informação previamente cadastrada no sistema e preenchida automaticamente|
 | conta_tranferencia | id | sim | qual conta irá receber o saque ou a transferencia|
 | valor | float | sim | valor que será depositado |
 | saldo | float | sim | saldo da carteira |

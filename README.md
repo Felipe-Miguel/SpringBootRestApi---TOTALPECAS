@@ -68,7 +68,7 @@ Uma API para o app TotalPecas um e-commerce
 
 ### Detalhar produto
 
-`GET` /api/produto/{id}
+`GET` /api/produto/{id_produto}
 
 **Exemplo de Corpo de resposta** 
 ```js
@@ -111,7 +111,7 @@ Uma API para o app TotalPecas um e-commerce
 
 ### Alterar produto
 
-`PUT` /api/produto/{id}
+`PUT` /api/produto/{id_produto}
 
 **Exemplo de corpo de requisição**
 
@@ -146,7 +146,7 @@ Uma API para o app TotalPecas um e-commerce
 
 ### Excluir produto
 
-`DELETE` /api/produto/{id}
+`DELETE` /api/produto/{id_produto}
 
 **Exemplo de corpo de requisição**
 
@@ -219,7 +219,7 @@ Uma API para o app TotalPecas um e-commerce
 
 
 ### Detalhar usuario
-`GET` /api/usuario/{id}
+`GET` /api/usuario/{id_usuario}
 
 **Exemplo de Corpo de resposta** 
 
@@ -254,7 +254,7 @@ Uma API para o app TotalPecas um e-commerce
 
 ### Alterar usuario
 
-`PUT` /api/usuario/{id}
+`PUT` /api/usuario/{id_usuario}
 
 **Exemplo de corpo de requisição**
 
@@ -287,7 +287,7 @@ Uma API para o app TotalPecas um e-commerce
 
 ### Excluir usuario
 
-`DELETE` /api/usuario/{id}
+`DELETE` /api/usuario/{id_usuario}
 
 **Exemplo de corpo de requisição**
 
@@ -350,7 +350,7 @@ Uma API para o app TotalPecas um e-commerce
 
 
 ### Detalhar transação
-`GET` /api/carteira/{id}
+`GET` /api/carteira/{id_carteira}
 
 **Exemplo de Corpo de resposta** 
 

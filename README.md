@@ -321,8 +321,8 @@ Documentação da API da Total Peças, um sistema de e-Commerce voltado totalmen
 | campo | tipo | obrigatório | descricao
 |-------|------|:-------------:|----------
 | id_carteira | int | sim | id de uma carteira gerado pelo sistema |
-| tipo_id | id | sim | qual tipo de transação foi feita, informação previamente cadastrada no sistema e preenchida automaticamente|
-| conta_tranferencia | id | sim | qual conta irá receber o saque ou a transferencia|
+| tipo_id | int | sim | qual tipo de transação foi feita, informação previamente cadastrada no sistema e preenchida automaticamente|
+| conta_tranferencia | string | sim | qual conta irá receber o saque ou a transferencia|
 | valor | float | sim | valor que será depositado |
 | saldo | float | sim | saldo da carteira |
 

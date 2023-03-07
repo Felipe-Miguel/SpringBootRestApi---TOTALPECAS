@@ -36,7 +36,7 @@ Documentação da API da Total Peças, um sistema de e-Commerce voltado totalmen
 | preco | float | sim | o valor do produto, deve ser maior que zero |
 | marca_id | int | sim | código de uma marca previamente cadastrada |
 | modelo_id | int | sim | código de um modelo previamente cadastrada |
-| anos | int | sim | os anos do modelo que o produto serve, não pode ultrapassar o ano atual |
+| anos | ArrayList<Integer> | sim | os anos do modelo que o produto serve, não pode ultrapassar o ano atual |
 | estado_id | int | sim | código de um estado previamente cadastrado |
 
 

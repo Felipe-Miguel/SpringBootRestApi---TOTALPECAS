@@ -46,7 +46,7 @@ Documentação da API da Total Peças, um sistema de e-Commerce voltado totalmen
   preco: 100.00,
   marca_id: 1,
   modelo_id: 1,
-  anos: [2012,2013,2014]
+  anos: [2012,2013,2014],
   estado_id: 1,
   
 }

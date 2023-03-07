@@ -1,6 +1,6 @@
 # TotalPecas-Backlog
 
-Documentação da API da Total Peças, um sistema de e-Commerce voltado totalmente para o setor de auto peças. Com a Total Peças você possuí uma plataforma voltada para o ramo, logo, você não possuí os problemas das plataformas convencionais como falta de organização em suas categorias, um sistema de transporte e cotação de frente totalmente despreparados para o mercado automotivo e além de tudo, uma plataforma que entende as necessidades do mercado e conhece o negócio. Nesta documentação, você encontrará informações detalhadas sobre as rotas disponíveis, os parâmetros necessários e as respostas retornadas pela API.
+Documentação da API da Total Peças, um sistema de e-Commerce voltado totalmente para o setor de auto peças. Com a Total Peças você possuí uma plataforma voltada para o ramo, logo, você não possuí os problemas das plataformas convencionais como falta de organização em suas categorias, um sistema de transporte e cotação de frete totalmente despreparados para o mercado automotivo e além de tudo, uma plataforma que entende as necessidades do mercado e conhece o negócio. Nesta documentação, você encontrará informações detalhadas sobre as rotas disponíveis, os parâmetros necessários e as respostas retornadas pela API.
 
 ## Contribuidores
 - Felipe Miguel Ortega de Souza

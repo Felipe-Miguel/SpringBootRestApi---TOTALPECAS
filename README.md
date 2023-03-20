@@ -444,7 +444,7 @@ id - código do usuario a ser alterado
   "logradouro": "Avenida Paulista",
   "numero": 123
 }
-    
+```
 **Códigos de resposta**
 
 | codigo | descricao |

@@ -26,7 +26,7 @@ Documentação da API da Total Peças, um sistema de e-Commerce voltado totalmen
 ---
 
 ### Cadastrar produto
-`POST` /api/produto
+`POST` /api/produtos
 
 | campo | tipo | obrigatório | descricao
 |-------|------|:-------------:|----------
@@ -44,7 +44,6 @@ Documentação da API da Total Peças, um sistema de e-Commerce voltado totalmen
 
 ```json
 {
-  "id_produto": 1,
   "categoria_id": 1,
   "titulo": "Parachoque dianteiro freemont",
   "preco": 100.00,
@@ -71,7 +70,7 @@ Documentação da API da Total Peças, um sistema de e-Commerce voltado totalmen
 
 ### Detalhar produto
 
-`GET` /api/produto/{id_produto}
+`GET` /api/produtos/{id}
 
 **Exemplo de Corpo de resposta** 
 ```json
@@ -114,7 +113,7 @@ Documentação da API da Total Peças, um sistema de e-Commerce voltado totalmen
 
 ### Alterar produto
 
-`PUT` /api/produto/{id_produto}
+`PUT` /api/produtos/{id}
 
 **Exemplo de corpo de requisição**
 
@@ -148,7 +147,7 @@ Documentação da API da Total Peças, um sistema de e-Commerce voltado totalmen
 
 ### Excluir produto
 
-`DELETE` /api/produto/{id_produto}
+`DELETE` /api/produtos/{id}
 
 **Parâmetros de caminho**
 
@@ -169,7 +168,7 @@ id - código do produto a ser excluido
 
 
 ### Cadastrar usuario
-`POST` /api/usuario
+`POST` /api/usuarios
 
 | campo | tipo | obrigatório | descricao
 |-------|------|:-------------:|----------
@@ -214,7 +213,7 @@ id - código do produto a ser excluido
 
 
 ### Detalhar usuario
-`GET` /api/usuario/{id_usuario}
+`GET` /api/usuarios/{id}
 
 **Exemplo de Corpo de resposta** 
 
@@ -248,7 +247,7 @@ id - código do produto a ser excluido
 
 ### Alterar usuario
 
-`PUT` /api/usuario/{id_usuario}
+`PUT` /api/usuarios/{id}
 
 **Exemplo de corpo de requisição**
 
@@ -280,7 +279,7 @@ id - código do produto a ser excluido
 
 ### Excluir usuario
 
-`DELETE` /api/usuario/{id}
+`DELETE` /api/usuarios/{id}
 
 **Parâmetros de caminho**
 
@@ -299,14 +298,13 @@ id - código do usuario a ser excluido
 
 ---
 
-### Depositar
-`POST` /api/carteira
+### Cadastrar carteira
+`POST` /api/carteiras
 
 | campo | tipo | obrigatório | descricao
 |-------|------|:-------------:|----------
 | id_carteira | int | sim | id de uma carteira gerado pelo sistema |
 | tipo_id | int | sim | qual tipo de transação foi feita, informação previamente cadastrada no sistema e preenchida automaticamente|
-| conta_tranferencia | string | sim | qual conta irá receber o saque ou a transferencia|
 | valor | float | sim | valor que será depositado |
 | saldo | float | sim | saldo da carteira |
 
@@ -336,8 +334,8 @@ id - código do usuario a ser excluido
 ---
 
 
-### Detalhar transação
-`GET` /api/carteira/{id_carteira}
+### Detalhar carteira
+`GET` /api/carteiras/{id}
 
 **Exemplo de Corpo de resposta** 
 
@@ -350,6 +348,7 @@ id - código do usuario a ser excluido
   }
   "id_carteira": 1,
   "valor": 230.00,
+  "saldo": 290.00
 }
 ```
 
@@ -366,7 +365,7 @@ id - código do usuario a ser excluido
 
 ---
 
-### Detalhar transações
+### Detalhar carteiras
 `GET` /api/carteira
 
 **Exemplo de Corpo de resposta** 
@@ -374,38 +373,40 @@ id - código do usuario a ser excluido
 ```json
    [ 
     {
-  "tipo":{
-    "tipo_id":1,
-    "tipo": "Depósito"
-  }
-  "id_carteira": 1,
-  "valor": 230.00,
-},
-  "tipo":{
-    "tipo_id":2,
-    "tipo": "Saque"
-  }
-  "id_carteira": 1,
-  "valor": 230.00,
-  "conta_tranferencia": 99999-3
+      "tipo":{
+        "tipo_id":1,
+        "tipo": "Depósito"
+      }
+      "id_carteira": 1,
+      "valor": 230.00,
+      "saldo": 290.00 
+    },
+   {
+      "tipo":{
+        "tipo_id":2,
+        "tipo": "Saque"
+      }
+      "id_carteira": 1,
+      "valor": 230.00,
+      "saldo": 250.00
+    }
 ]
 ```
 
 
 
-### Sacar
+### Alterar Carteira
 
-`POST` /api/carteira
+`PUT` /api/carteira/{id}
 
 **Exemplo de corpo de requisição**
 
 ```json
 {
-
-"tipo_id":2
-"id_carteira": 1,
-"valor": 300.00,
-"conta_tranferencia": 99999-3
+    "tipo_id":2
+    "id_carteira": 1,
+    "valor": 300.00,
+    "saldo": 745.00
 }
 ```
 
@@ -422,20 +423,15 @@ id - código do usuario a ser excluido
 | 404 | O recurso que a requisição PUT está tentando atualizar não pode ser encontrado|
 | 500 | Ocorreu um erro interno do servidor ao processar a requisição PUT|
 
-### Transferir
+### Deletar carteira
 
-`POST` /api/carteira
+`DELETE` /api/carteiras/{id}
 
-**Exemplo de corpo de requisição**
+**Parâmetros de caminho**
 
-```json
-{
-"tipo":3
-"id_carteira": 1,
-"valor": 300.00,
-"conta_tranferencia": 99999-3
-}
-```
+id - código da carteira a ser excluido
+
+**Códigos de resposta**
 
 **Códigos de resposta**
 

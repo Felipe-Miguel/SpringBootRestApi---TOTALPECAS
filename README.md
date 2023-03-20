@@ -18,11 +18,11 @@ Documentação da API da Total Peças, um sistema de e-Commerce voltado totalmen
     - [Alterar](#alterar-usuario)
     - [Excluir](#excluir-usuario)
 - Carteira
-    - [Depositar](#depositar)
-    - [Detalhar](#detalhar-transação)
-    - [Detalhar-Todos](#detalhar-transações)
-    - [Sacar](#sacar)
-    - [Tranferir](#transferir)
+    - [Cadastrar](#cadastrar-carteira)
+    - [Detalhar](#detalhar-carteira)
+    - [Detalhar-Todos](#listar-transações)
+    - [Alterar](#alterar-carteira)
+    - [Deletar](#deletar-carteira)
 ---
 
 ### Cadastrar produto
@@ -365,7 +365,7 @@ id - código do usuario a ser excluido
 
 ---
 
-### Detalhar carteiras
+### Listar carteiras
 `GET` /api/carteira
 
 **Exemplo de Corpo de resposta** 

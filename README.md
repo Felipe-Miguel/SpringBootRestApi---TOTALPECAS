@@ -71,6 +71,10 @@ Documentação da API da Total Peças, um sistema de e-Commerce voltado totalmen
 ### Detalhar produto
 
 `GET` /api/produtos/{id}
+    
+**Parâmetros de caminho**
+
+id - código do produto a ser detalhado
 
 **Exemplo de Corpo de resposta** 
 ```json
@@ -178,6 +182,10 @@ Documentação da API da Total Peças, um sistema de e-Commerce voltado totalmen
 ### Alterar produto
 
 `PUT` /api/produtos/{id}
+ 
+    **Parâmetros de caminho**
+
+id - código do produto a ser alterado
 
 **Exemplo de corpo de requisição**
 
@@ -278,6 +286,11 @@ id - código do produto a ser excluido
 
 ### Detalhar usuario
 `GET` /api/usuarios/{id}
+  
+    
+    **Parâmetros de caminho**
+
+id - código do usuario a ser detalhado
 
 **Exemplo de Corpo de resposta** 
 
@@ -308,11 +321,59 @@ id - código do produto a ser excluido
 | 500 | Ocorreu um erro interno do servidor ao processar a requisição GET|
 
 ---
+    
+### Listar usuarios
+`GET` /api/usuarios
+
+**Exemplo de Corpo de resposta** 
+
+```json
+[    
+    {
+      "id_usuario": 1,
+      "nome": "Nome do usuario",
+      "email": "exemplo@gmail.com",
+      "celular": "(11)99999-9999",
+      "cpf": "123.456.789-10",
+      "cep": "12345-678",
+      "logradouro": "Avenida Paulista",
+      "numero": 123
+    },
+     {
+      "id_usuario": 2,
+      "nome": "Nome do usuario 2",
+      "email": "exemplo2@gmail.com",
+      "celular": "(12)99999-9999",
+      "cpf": "145.456.789-10",
+      "cep": "12455-678",
+      "logradouro": "Rua das flores",
+      "numero": 479
+    }
+[
+```
+
+**Códigos de resposta**
+
+| codigo | descricao |
+|--------|-----------|
+| 200 | A requisição GET foi bem-sucedida e o servidor retornou os dados solicitados no corpo da resposta|
+| 400 | A requisição GET não pode ser processada devido a um erro no formato ou na sintaxe da requisição|
+| 401 | A requisição GET requer autenticação, mas as credenciais fornecidas não são válidas ou não foram fornecidas|
+| 403 | A requisição GET é proibida pelo servidor, geralmente porque o usuário não tem permissão para acessar o recurso solicitado|
+| 404 | O recurso solicitado na requisição GET não pode ser encontrado|
+| 500 | Ocorreu um erro interno do servidor ao processar a requisição GET|
+
+---
 
 ### Alterar usuario
 
 `PUT` /api/usuarios/{id}
 
+        
+    **Parâmetros de caminho**
+
+id - código do usuario a ser alterado
+    
 **Exemplo de corpo de requisição**
 
 ```json
@@ -400,6 +461,11 @@ id - código do usuario a ser excluido
 
 ### Detalhar carteira
 `GET` /api/carteiras/{id}
+    
+     
+    **Parâmetros de caminho**
+
+id - código da carteira a ser detalhada
 
 **Exemplo de Corpo de resposta** 
 
@@ -462,6 +528,10 @@ id - código do usuario a ser excluido
 ### Alterar Carteira
 
 `PUT` /api/carteira/{id}
+ 
+        **Parâmetros de caminho**
+
+id - código da carteira a ser alterada
 
 **Exemplo de corpo de requisição**
 
@@ -493,7 +563,7 @@ id - código do usuario a ser excluido
 
 **Parâmetros de caminho**
 
-id - código da carteira a ser excluido
+id - código da carteira a ser excluida
 
 **Códigos de resposta**
 

@@ -42,16 +42,16 @@ Documentação da API da Total Peças, um sistema de e-Commerce voltado totalmen
 
 **Exemplo de corpo de requisição**
 
-```js
+```json
 {
-  id_produto: 1,
-  categoria_id: 1,
-  titulo: `Parachoque dianteiro freemont`,
-  preco: 100.00,
-  marca_id: 1,
-  modelo_id: 1,
-  anos: [2012,2013,2014],
-  estado_id: 1,
+  "id_produto": 1,
+  "categoria_id": 1,
+  "titulo": "Parachoque dianteiro freemont",
+  "preco": 100.00,
+  "marca_id": 1,
+  "modelo_id": 1,
+  "anos": [2012,2013,2014],
+  "estado_id": 1,
   
 }
 ```
@@ -61,7 +61,6 @@ Documentação da API da Total Peças, um sistema de e-Commerce voltado totalmen
 | codigo | descricao |
 |--------|-----------|
 | 200 | A requisição GET foi bem-sucedida e o servidor retornou os dados solicitados no corpo da resposta|
-| 204 | A requisição GET foi bem-sucedida, mas não há conteúdo a ser retornado na resposta|
 | 400 | A requisição GET não pode ser processada devido a um erro no formato ou na sintaxe da requisição|
 | 401 | A requisição GET requer autenticação, mas as credenciais fornecidas não são válidas ou não foram fornecidas|
 | 403 | A requisição GET é proibida pelo servidor, geralmente porque o usuário não tem permissão para acessar o recurso solicitado|
@@ -75,27 +74,27 @@ Documentação da API da Total Peças, um sistema de e-Commerce voltado totalmen
 `GET` /api/produto/{id_produto}
 
 **Exemplo de Corpo de resposta** 
-```js
+```json
 {
-  categoria:{
-      categoria_id: 1,
-      nome: 'Parachoque'
+  "categoria":{
+      "categoria_id": 1,
+      "nome": "Parachoque"
   },
-  titulo: `Parachoque dianteiro freemont`,
-  preco: 100.00,
-  marca:{
-      marca_id: 1,
-      nome: 'Fiat'
+  "titulo": "Parachoque dianteiro freemont",
+  "preco": 100.00,
+  "marca":{
+      "marca_id": 1,
+      "nome": "Fiat"
   },
-  modelo:{
-      modelo_id: 1,
-      nome: 'Freemont'
+  "modelo":{
+      "modelo_id": 1,
+      "nome": 'Freemont'
   },
-  anos:[2014,2015,2016]
+  "anos":[2014,2015,2016]
   },
-  estado:{
-      estado_id: 1,
-      nome: 'Usado'
+  "estado":{
+      "estado_id": 1,
+      "nome": 'Usado'
   },
 ```
 
@@ -119,16 +118,16 @@ Documentação da API da Total Peças, um sistema de e-Commerce voltado totalmen
 
 **Exemplo de corpo de requisição**
 
-```js
+```json
 {
-   id_produto:1,
-   categoria_id: 1,
-   titulo: "Novo nome do produto",
-   preco: 149.99,
-   marca_id: 456,
-   modelo_id: 789,
-   anos: [2019, 2020, 2021],
-   estado_id: 2
+   "id_produto":1,
+   "categoria_id": 1,
+   "titulo": "Novo nome do produto",
+   "preco": 149.99,
+   "marca_id": 456,
+   "modelo_id": 789,
+   "anos": [2019, 2020, 2021],
+   "estado_id": 2
   
 }
 ```
@@ -139,7 +138,6 @@ Documentação da API da Total Peças, um sistema de e-Commerce voltado totalmen
 |--------|-----------|
 | 200 | A requisição PUT foi bem-sucedida e o recurso foi atualizado com sucesso|
 | 201 | A requisição PUT foi bem-sucedida e um novo recurso foi criado|
-| 204 | A requisição PUT foi bem-sucedida e o recurso foi atualizado com sucesso, mas não há conteúdo a ser retornado na resposta|
 | 400 | A requisição PUT não pode ser processada devido a um erro no formato ou na sintaxe da requisição|
 | 401 | A requisição PUT requer autenticação, mas as credenciais fornecidas não são válidas ou não foram fornecidas|
 | 403 | A requisição PUT é proibida pelo servidor, geralmente porque o usuário não tem permissão para atualizar o recurso|
@@ -152,14 +150,9 @@ Documentação da API da Total Peças, um sistema de e-Commerce voltado totalmen
 
 `DELETE` /api/produto/{id_produto}
 
-**Exemplo de corpo de requisição**
+**Parâmetros de caminho**
 
-```js
-{
-     id_produto:1
-  
-}
-```
+id - código do produto a ser excluido
 
 **Códigos de resposta**
 
@@ -167,7 +160,6 @@ Documentação da API da Total Peças, um sistema de e-Commerce voltado totalmen
 |--------|-----------|
 | 200 | este código é usado para indicar que a requisição DELETE foi bem-sucedida e o recurso foi excluído com sucesso. |
 | 202 | este código é usado quando a requisição DELETE foi aceita pelo servidor, mas a exclusão do recurso ainda não foi concluída. Isso pode acontecer quando a exclusão leva algum tempo para ser concluída|
-| 204 | este código é usado para indicar que a requisição DELETE foi bem-sucedida e o recurso foi excluído com sucesso, mas não há conteúdo a ser retornado na resposta|
 | 400  | ste código é usado quando a requisição DELETE não pode ser processada devido a um erro no formato ou na sintaxe da requisição| 
 | 401  | este código é usado quando a requisição DELETE requer autenticação, mas as credenciais fornecidas não são válidas ou não foram fornecidas|
 | 404  | este código é usado quando o recurso que a requisição DELETE está tentando excluir não pode ser encontrado| 
@@ -193,16 +185,16 @@ Documentação da API da Total Peças, um sistema de e-Commerce voltado totalmen
 
 **Exemplo de corpo de requisição**
 
-```js
+```json
 {
-  id_usuario: 1,
-  nome: "Nome do usuario",
-  email: "exemplo@gmail.com",
-  celular: "(11)99999-9999",
-  cpf: "123.456.789-10",
-  cep: "12345-678",
-  logradouro: "Avenida Paulista",
-  numero: 123
+  "id_usuario": 1,
+  "nome": "Nome do usuario",
+  "email": "exemplo@gmail.com",
+  "celular": "(11)99999-9999",
+  "cpf": "123.456.789-10",
+  "cep": "12345-678",
+  "logradouro": "Avenida Paulista",
+  "numero": 123
   
 }
 ```
@@ -212,7 +204,6 @@ Documentação da API da Total Peças, um sistema de e-Commerce voltado totalmen
 | codigo | descricao |
 |--------|-----------|
 | 200 | A requisição GET foi bem-sucedida e o servidor retornou os dados solicitados no corpo da resposta|
-| 204 | A requisição GET foi bem-sucedida, mas não há conteúdo a ser retornado na resposta|
 | 400 | A requisição GET não pode ser processada devido a um erro no formato ou na sintaxe da requisição|
 | 401 | A requisição GET requer autenticação, mas as credenciais fornecidas não são válidas ou não foram fornecidas|
 | 403 | A requisição GET é proibida pelo servidor, geralmente porque o usuário não tem permissão para acessar o recurso solicitado|
@@ -227,17 +218,17 @@ Documentação da API da Total Peças, um sistema de e-Commerce voltado totalmen
 
 **Exemplo de Corpo de resposta** 
 
-```js
+```json
 {
 
-  id_usuario: 1,
-  nome: "Nome do usuario",
-  email: "exemplo@gmail.com",
-  celular: "(11)99999-9999",
-  cpf: "123.456.789-10",
-  cep: "12345-678",
-  logradouro: "Avenida Paulista",
-  numero: 123
+  "id_usuario": 1,
+  "nome": "Nome do usuario",
+  "email": "exemplo@gmail.com",
+  "celular": "(11)99999-9999",
+  "cpf": "123.456.789-10",
+  "cep": "12345-678",
+  "logradouro": "Avenida Paulista",
+  "numero": 123
   
 }
 ```
@@ -246,8 +237,7 @@ Documentação da API da Total Peças, um sistema de e-Commerce voltado totalmen
 
 | codigo | descricao |
 |--------|-----------|
-| 200 | A requisição GET foi bem-sucedida e o servidor retornou os dados solicitados no corpo da resposta| 
-| 204 | A requisição GET foi bem-sucedida, mas não há conteúdo a ser retornado na resposta| 
+| 200 | A requisição GET foi bem-sucedida e o servidor retornou os dados solicitados no corpo da resposta|
 | 400 | A requisição GET não pode ser processada devido a um erro no formato ou na sintaxe da requisição|
 | 401 | A requisição GET requer autenticação, mas as credenciais fornecidas não são válidas ou não foram fornecidas|
 | 403 | A requisição GET é proibida pelo servidor, geralmente porque o usuário não tem permissão para acessar o recurso solicitado|
@@ -262,17 +252,17 @@ Documentação da API da Total Peças, um sistema de e-Commerce voltado totalmen
 
 **Exemplo de corpo de requisição**
 
-```js
+```json
 {
 
-  id_usuario: 1,
-  nome: "Nome do usuario alterado",
-  email: "exemplo@gmail.com",
-  celular: "(11)99999-9999",
-  cpf: "123.456.789-10",
-  cep: "12345-678",
-  logradouro: "Avenida Paulista",
-  numero: 123
+  "id_usuario": 1,
+  "nome": "Nome do usuario alterado",
+  "email": "exemplo@gmail.com",
+  "celular": "(11)99999-9999",
+  "cpf": "123.456.789-10",
+  "cep": "12345-678",
+  "logradouro": "Avenida Paulista",
+  "numero": 123
 }
 ```
 
@@ -282,7 +272,6 @@ Documentação da API da Total Peças, um sistema de e-Commerce voltado totalmen
 |--------|-----------|
 | 200 | A requisição PUT foi bem-sucedida e o recurso foi atualizado com sucesso|
 | 201 | A requisição PUT foi bem-sucedida e um novo recurso foi criado|
-| 204 | A requisição PUT foi bem-sucedida e o recurso foi atualizado com sucesso, mas não há conteúdo a ser retornado na resposta|
 | 400 | A requisição PUT não pode ser processada devido a um erro no formato ou na sintaxe da requisição|
 | 401 | A requisição PUT requer autenticação, mas as credenciais fornecidas não são válidas ou não foram fornecidas|
 | 403 | A requisição PUT é proibida pelo servidor, geralmente porque o usuário não tem permissão para atualizar o recurso|
@@ -291,15 +280,11 @@ Documentação da API da Total Peças, um sistema de e-Commerce voltado totalmen
 
 ### Excluir usuario
 
-`DELETE` /api/usuario/{id_usuario}
+`DELETE` /api/usuario/{id}
 
-**Exemplo de corpo de requisição**
+**Parâmetros de caminho**
 
-```js
-{
-  id_usuario: 1 
-}
-```
+id - código do usuario a ser excluido
 
 **Códigos de resposta**
 
@@ -307,7 +292,6 @@ Documentação da API da Total Peças, um sistema de e-Commerce voltado totalmen
 |--------|-----------|
 | 200 | este código é usado para indicar que a requisição DELETE foi bem-sucedida e o recurso foi excluído com sucesso. |
 | 202 | este código é usado quando a requisição DELETE foi aceita pelo servidor, mas a exclusão do recurso ainda não foi concluída. Isso pode acontecer quando a exclusão leva algum tempo para ser concluída|
-| 204 | este código é usado para indicar que a requisição DELETE foi bem-sucedida e o recurso foi excluído com sucesso, mas não há conteúdo a ser retornado na resposta|
 | 400  | ste código é usado quando a requisição DELETE não pode ser processada devido a um erro no formato ou na sintaxe da requisição| 
 | 401  | este código é usado quando a requisição DELETE requer autenticação, mas as credenciais fornecidas não são válidas ou não foram fornecidas|
 | 404  | este código é usado quando o recurso que a requisição DELETE está tentando excluir não pode ser encontrado| 
@@ -329,12 +313,12 @@ Documentação da API da Total Peças, um sistema de e-Commerce voltado totalmen
 
 **Exemplo de corpo de requisição**
 
-```js
+```json
 {
-  tipo_id:1
-  id_carteira: 1,
-  valor: 230.00,
-  saldo: 100
+  "tipo_id":1
+  "id_carteira": 1,
+  "valor": 230.00,
+  "saldo": 100
 }
 ```
 
@@ -343,7 +327,6 @@ Documentação da API da Total Peças, um sistema de e-Commerce voltado totalmen
 | codigo | descricao |
 |--------|-----------|
 | 200 | A requisição GET foi bem-sucedida e o servidor retornou os dados solicitados no corpo da resposta|
-| 204 | A requisição GET foi bem-sucedida, mas não há conteúdo a ser retornado na resposta|
 | 400 | A requisição GET não pode ser processada devido a um erro no formato ou na sintaxe da requisição|
 | 401 | A requisição GET requer autenticação, mas as credenciais fornecidas não são válidas ou não foram fornecidas|
 | 403 | A requisição GET é proibida pelo servidor, geralmente porque o usuário não tem permissão para acessar o recurso solicitado|
@@ -358,15 +341,15 @@ Documentação da API da Total Peças, um sistema de e-Commerce voltado totalmen
 
 **Exemplo de Corpo de resposta** 
 
-```js
+```json
 {
     
-  tipo:{
-    tipo_id:1,
-    tipo: "Depósito"
+  "tipo":{
+    "tipo_id":1,
+    "tipo": "Depósito"
   }
-  id_carteira: 1,
-  valor: 230.00,
+  "id_carteira": 1,
+  "valor": 230.00,
 }
 ```
 
@@ -375,7 +358,6 @@ Documentação da API da Total Peças, um sistema de e-Commerce voltado totalmen
 | codigo | descricao |
 |--------|-----------|
 | 200 | A requisição GET foi bem-sucedida e o servidor retornou os dados solicitados no corpo da resposta| 
-| 204 | A requisição GET foi bem-sucedida, mas não há conteúdo a ser retornado na resposta| 
 | 400 | A requisição GET não pode ser processada devido a um erro no formato ou na sintaxe da requisição|
 | 401 | A requisição GET requer autenticação, mas as credenciais fornecidas não são válidas ou não foram fornecidas|
 | 403 | A requisição GET é proibida pelo servidor, geralmente porque o usuário não tem permissão para acessar o recurso solicitado|
@@ -389,23 +371,23 @@ Documentação da API da Total Peças, um sistema de e-Commerce voltado totalmen
 
 **Exemplo de Corpo de resposta** 
 
-```js
+```json
    [ 
     {
-  tipo:{
-  tipo_id:1,
-  tipo: "Depósito"
+  "tipo":{
+    "tipo_id":1,
+    "tipo": "Depósito"
   }
-  id_carteira: 1,
-  valor: 230.00,
+  "id_carteira": 1,
+  "valor": 230.00,
 },
-  tipo:{
-  tipo_id:2,
-  tipo: "Saque"
+  "tipo":{
+    "tipo_id":2,
+    "tipo": "Saque"
   }
-  id_carteira: 1,
-  valor: 230.00,
-  conta_tranferencia: 99999-3
+  "id_carteira": 1,
+  "valor": 230.00,
+  "conta_tranferencia": 99999-3
 ]
 ```
 
@@ -417,13 +399,13 @@ Documentação da API da Total Peças, um sistema de e-Commerce voltado totalmen
 
 **Exemplo de corpo de requisição**
 
-```js
+```json
 {
 
-tipo_id:2
-id_carteira: 1,
-valor: 300.00,
-conta_tranferencia: 99999-3
+"tipo_id":2
+"id_carteira": 1,
+"valor": 300.00,
+"conta_tranferencia": 99999-3
 }
 ```
 
@@ -446,12 +428,12 @@ conta_tranferencia: 99999-3
 
 **Exemplo de corpo de requisição**
 
-```js
+```json
 {
-tipo:3
-id_carteira: 1,
-valor: 300.00,
-conta_tranferencia: 99999-3
+"tipo":3
+"id_carteira": 1,
+"valor": 300.00,
+"conta_tranferencia": 99999-3
 }
 ```
 
@@ -461,7 +443,6 @@ conta_tranferencia: 99999-3
 |--------|-----------|
 | 200 | este código é usado para indicar que a requisição DELETE foi bem-sucedida e o recurso foi excluído com sucesso. |
 | 202 | este código é usado quando a requisição DELETE foi aceita pelo servidor, mas a exclusão do recurso ainda não foi concluída. Isso pode acontecer quando a exclusão leva algum tempo para ser concluída|
-| 204 | este código é usado para indicar que a requisição DELETE foi bem-sucedida e o recurso foi excluído com sucesso, mas não há conteúdo a ser retornado na resposta|
 | 400  | ste código é usado quando a requisição DELETE não pode ser processada devido a um erro no formato ou na sintaxe da requisição| 
 | 401  | este código é usado quando a requisição DELETE requer autenticação, mas as credenciais fornecidas não são válidas ou não foram fornecidas|
 | 404  | este código é usado quando o recurso que a requisição DELETE está tentando excluir não pode ser encontrado| 

@@ -30,7 +30,6 @@ Documentação da API da Total Peças, um sistema de e-Commerce voltado totalmen
 
 | campo | tipo | obrigatório | descricao
 |-------|------|:-------------:|----------
-| id_produto | int | sim | id de um produto gerado pelo sistema |
 | categoria_id | int | sim | código de uma categoria previamente cadastrada |
 | titulo | string | sim | título do produto, deve conter entre 30 e 60 caracteres |
 | preco | float | sim | o valor do produto, deve ser maior que zero |
@@ -44,6 +43,21 @@ Documentação da API da Total Peças, um sistema de e-Commerce voltado totalmen
 
 ```json
 {
+  "categoria_id": 1,
+  "titulo": "Parachoque dianteiro freemont",
+  "preco": 100.00,
+  "marca_id": 1,
+  "modelo_id": 1,
+  "anos": [2012,2013,2014],
+  "estado_id": 1,
+  
+}
+```
+**Exemplo de corpo de resposta**
+
+```json
+{
+  "id":1,
   "categoria_id": 1,
   "titulo": "Parachoque dianteiro freemont",
   "preco": 100.00,
@@ -121,6 +135,7 @@ id - código do produto a ser detalhado
 ```json
 [
 {
+  "id":1,
   "categoria":{
       "categoria_id": 1,
       "nome": "Parachoque"
@@ -142,6 +157,7 @@ id - código do produto a ser detalhado
     }
   },
     {
+  "id":2,
   "categoria":{
       "categoria_id": 2,
       "nome": "Farol"
@@ -191,7 +207,6 @@ id - código do produto a ser alterado
 
 ```json
 {
-   "id_produto":1,
    "categoria_id": 1,
    "titulo": "Novo nome do produto",
    "preco": 149.99,
@@ -199,7 +214,21 @@ id - código do produto a ser alterado
    "modelo_id": 789,
    "anos": [2019, 2020, 2021],
    "estado_id": 2
-  
+}
+```
+    
+**Exemplo de corpo de resposta**
+
+```json
+{
+   "id":1,
+   "categoria_id": 1,
+   "titulo": "Novo nome do produto",
+   "preco": 149.99,
+   "marca_id": 456,
+   "modelo_id": 789,
+   "anos": [2019, 2020, 2021],
+   "estado_id": 2
 }
 ```
 
@@ -244,7 +273,6 @@ id - código do produto a ser excluido
 
 | campo | tipo | obrigatório | descricao
 |-------|------|:-------------:|----------
-| id_usuario | int | sim | id de um usuario gerado pelo sistema |
 | nome | string | sim | nome do usuário, deve conter pelo menos dois nomes |
 | email | string | sim | email do usuário |
 | celular | string | sim | celular do usuário |
@@ -258,7 +286,22 @@ id - código do produto a ser excluido
 
 ```json
 {
-  "id_usuario": 1,
+  "nome": "Nome do usuario",
+  "email": "exemplo@gmail.com",
+  "celular": "(11)99999-9999",
+  "cpf": "123.456.789-10",
+  "cep": "12345-678",
+  "logradouro": "Avenida Paulista",
+  "numero": 123
+  
+}
+```
+    
+**Exemplo de corpo de resposta**
+
+```json
+{
+  "id": 1,
   "nome": "Nome do usuario",
   "email": "exemplo@gmail.com",
   "celular": "(11)99999-9999",
@@ -378,8 +421,6 @@ id - código do usuario a ser alterado
 
 ```json
 {
-
-  "id_usuario": 1,
   "nome": "Nome do usuario alterado",
   "email": "exemplo@gmail.com",
   "celular": "(11)99999-9999",
@@ -390,6 +431,20 @@ id - código do usuario a ser alterado
 }
 ```
 
+**Exemplo de corpo de resposta**
+
+```json
+{
+  "id_usuario": 1,
+  "nome": "Nome do usuario alterado",
+  "email": "exemplo@gmail.com",
+  "celular": "(11)99999-9999",
+  "cpf": "123.456.789-10",
+  "cep": "12345-678",
+  "logradouro": "Avenida Paulista",
+  "numero": 123
+}
+    
 **Códigos de resposta**
 
 | codigo | descricao |
@@ -428,7 +483,6 @@ id - código do usuario a ser excluido
 
 | campo | tipo | obrigatório | descricao
 |-------|------|:-------------:|----------
-| id_carteira | int | sim | id de uma carteira gerado pelo sistema |
 | tipo_id | int | sim | qual tipo de transação foi feita, informação previamente cadastrada no sistema e preenchida automaticamente|
 | valor | float | sim | valor que será depositado |
 | saldo | float | sim | saldo da carteira |
@@ -445,6 +499,18 @@ id - código do usuario a ser excluido
 }
 ```
 
+**Exemplo de corpo de resposta**
+
+```json
+{
+  "id":1,
+  "tipo_id":1
+  "id_carteira": 1,
+  "valor": 230.00,
+  "saldo": 100
+}
+```
+    
 **Códigos de resposta**
 
 | codigo | descricao |
@@ -471,12 +537,11 @@ id - código da carteira a ser detalhada
 
 ```json
 {
-    
+  "id":1,
   "tipo":{
     "tipo_id":1,
     "tipo": "Depósito"
-  }
-  "id_carteira": 1,
+  },
   "valor": 230.00,
   "saldo": 290.00
 }
@@ -503,20 +568,20 @@ id - código da carteira a ser detalhada
 ```json
    [ 
     {
+      "id": 1,
       "tipo":{
         "tipo_id":1,
         "tipo": "Depósito"
       }
-      "id_carteira": 1,
       "valor": 230.00,
       "saldo": 290.00 
     },
    {
+      "id": 2,
       "tipo":{
         "tipo_id":2,
         "tipo": "Saque"
       }
-      "id_carteira": 1,
       "valor": 230.00,
       "saldo": 250.00
     }
@@ -537,13 +602,21 @@ id - código da carteira a ser alterada
 
 ```json
 {
-    "tipo_id":2
-    "id_carteira": 1,
+    "tipo_id":1,
     "valor": 300.00,
     "saldo": 745.00
 }
 ```
+**Exemplo de corpo de resposta**
 
+```json
+{
+    "id": 1,
+    "tipo_id":1,
+    "valor": 300.00,
+    "saldo": 745.00
+}
+```
 **Códigos de resposta**
 
 | codigo | descricao |

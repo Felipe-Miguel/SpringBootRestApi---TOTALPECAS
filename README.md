@@ -88,13 +88,13 @@ Documentação da API da Total Peças, um sistema de e-Commerce voltado totalmen
   },
   "modelo":{
       "modelo_id": 1,
-      "nome": 'Freemont'
+      "nome": "Freemont"
   },
   "anos":[2014,2015,2016]
   },
   "estado":{
       "estado_id": 1,
-      "nome": 'Usado'
+      "nome": "Usado"
   },
 ```
 

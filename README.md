@@ -89,12 +89,76 @@ Documentação da API da Total Peças, um sistema de e-Commerce voltado totalmen
       "modelo_id": 1,
       "nome": "Freemont"
   },
-  "anos":[2014,2015,2016]
-  },
+  "anos":[2014,2015,2016],
   "estado":{
       "estado_id": 1,
       "nome": "Usado"
+    }
+  }
+```
+
+**Códigos de resposta**
+
+| codigo | descricao |
+|--------|-----------|
+| 200 | A requisição GET foi bem-sucedida e o servidor retornou os dados solicitados no corpo da resposta| 
+| 204 | A requisição GET foi bem-sucedida, mas não há conteúdo a ser retornado na resposta| 
+| 400 | A requisição GET não pode ser processada devido a um erro no formato ou na sintaxe da requisição|
+| 401 | A requisição GET requer autenticação, mas as credenciais fornecidas não são válidas ou não foram fornecidas|
+| 403 | A requisição GET é proibida pelo servidor, geralmente porque o usuário não tem permissão para acessar o recurso solicitado|
+| 404 | O recurso solicitado na requisição GET não pode ser encontrado|
+| 500 | Ocorreu um erro interno do servidor ao processar a requisição GET|
+
+### Listar produto
+
+`GET` /api/produtos
+
+**Exemplo de Corpo de resposta** 
+```json
+[
+{
+  "categoria":{
+      "categoria_id": 1,
+      "nome": "Parachoque"
   },
+  "titulo": "Parachoque dianteiro freemont",
+  "preco": 100.00,
+  "marca":{
+      "marca_id": 1,
+      "nome": "Fiat"
+  },
+  "modelo":{
+      "modelo_id": 1,
+      "nome": "Freemont"
+  },
+  "anos":[2014,2015,2016],
+  "estado":{
+      "estado_id": 1,
+      "nome": "Usado"
+    }
+  },
+    {
+  "categoria":{
+      "categoria_id": 2,
+      "nome": "Farol"
+  },
+  "titulo": "Farol dianteiro freemont",
+  "preco": 200.00,
+  "marca":{
+      "marca_id": 1,
+      "nome": "Fiat"
+  },
+  "modelo":{
+      "modelo_id": 1,
+      "nome": "Freemont"
+  },
+  "anos":[2010,2011,2012],
+  "estado":{
+      "estado_id": 2,
+      "nome": "Novo"
+    }
+  }
+ ]
 ```
 
 **Códigos de resposta**
